@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// constant : that store word /words ::
+// if words : we need random choice from array:
+
+
+// Here we have specific word and we split and create array:
+
+let word_comp="exhausted"
+let word_comp_array=word_comp.split("");
+console.log(word_comp_array)
+//console.log(word_comp_array.join(""))
+
+
+// Here we are thinking about input: we make array to feed input :
+// first we fill it with zeros....
+input_length=word_comp.length;
+let word_array= new Array(input_length);
+word_array.fill(0);
+
+
+// how many attempts to hang the man???
+number_attempts=11;
+//define the counter here
+count1=0;
+
+let temp_array;
+let input_letter;
+
+ do{
+    //// get input from user_ single letter
+    input_letter=prompt("Enter a letter to find " + input_length +" letters word" );
+    
+    // let clone the temp array with the word_array to compare:::
+    temp_array=word_array.map(function (i) { return i  })
+
+
+    for (iter=0; iter < word_comp_array.length ;iter++) {
+        //console.log(word_comp_array);
+        if (word_comp_array[iter] === input_letter) {
+            temp_array[iter]= input_letter;
+        }
+    }
+// compare whether we have match our letters
+console.log("test1111   " + temp_array.join(""));
+console.log("test2222   " + word_array.join(""));
+
+        status= (String(temp_array.join(""))).localeCompare(String(word_array.join("")) )
+        console.log(status)
+        if (Number(status)===0){
+            count1 ++
+            console.log(status+ " check it " + count1);
+        }
+        else{
+            console.log(" check it " );
+        }
+
+        // We need to update word_array again to check after update::
+
+        word_array=temp_array.map(function (i) { return i  });
+
+        console.log("Number of attempts remain " + (number_attempts-count1));
+        
+        status2=(word_array.join("")).localeCompare(word_comp);
+
+        console.log("match...???" + status2)
+ 
+}while(count1 < number_attempts && status2!=0 );
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
