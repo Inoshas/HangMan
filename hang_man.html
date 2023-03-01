@@ -4,13 +4,241 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hang Man</title>
 </head>
 <body>
 
+    <style>
+        * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-size: cover;
+        /*height: 55px;*/
+        background-color: rgb(233, 219, 219); /* For browsers that do not support gradients */
+        background-image: linear-gradient(to right, rgb(241, 236, 236), rgb(178, 175, 168), rgb(245, 245, 198), rgb(209, 235, 209), rgb(243, 243, 249));     
+}
+
+/* Style the header */
+header {
+  background-color: #e4b0b0;
+  padding: 15px;
+  text-align: center;
+  font-size: 30px;
+  color: rgb(8, 3, 3);
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 600px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  background-color: #f1f1f1;
+  height: 600px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer 
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}*/
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+
+
+
+
+
+
+
+
+
+        h1 {text-align: center;}
+        p {text-align: center;}
+        div {text-align: center;}
+
+       /* h1 {font-size: 5em; /* 40px/16=2.5em *}*/
+        h2 {font-size: 2.5em; /* 40px/16=2.5em */}
+        ul {font-size: 1.5em; /* 40px/16=2.5em */}
+        p {font-size: 1.5em; /* 40px/16=2.5em */}
+        input {font-size: 1.5em; /* 40px/16=2.5em */}
+
+        .button {
+            background-color: #5845e4; 
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+   
+    .buttonA {border-radius: 50%;}
+    .buttonB {border-radius: 50%;}
+    .buttonC {border-radius: 50%;}
+    .buttonD {border-radius: 50%;}
+    .buttonE {border-radius: 50%;}
+    .buttonF {border-radius: 50%;}
+    .buttonG {border-radius: 50%;}
+    .buttonH {border-radius: 50%;}
+    .buttonI {border-radius: 50%;}
+    .buttonJ {border-radius: 50%;}
+    .buttonK {border-radius: 50%;}
+    .buttonL {border-radius: 50%;}
+    .buttonM {border-radius: 50%;}
+    .buttonN {border-radius: 50%;}
+    .buttonO {border-radius: 50%;}
+    .buttonP {border-radius: 50%;}
+    .buttonQ {border-radius: 50%;}
+    .buttonR {border-radius: 50%;}
+    .buttonS {border-radius: 50%;}
+    .buttonT {border-radius: 50%;}
+    .buttonU {border-radius: 50%;}
+    .buttonV {border-radius: 50%;}
+    .buttonW {border-radius: 50%;}
+    .buttonX {border-radius: 50%;}
+    .buttonY {border-radius: 50%;}
+    .buttonZ {border-radius: 50%;}
+
+
+        button {font-size: 1.5em; /* 40px/16=2.5em */}
+
+    
+
+        body {
+        background-size: cover;
+        /*height: 55px;*/
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(to right, rgb(241, 236, 236), rgb(178, 175, 168), rgb(245, 245, 198), rgb(209, 235, 209), rgb(243, 243, 249));
+        }
+
+     </style >
+
+     
+        <header>
+        <h1>Hang Man Game</h1>
+        </header>
+
+
+        <section>
+            <nav>
+              <ul>
+                <li><a href="#">Disney</a></li>
+                <li><a href="#">Harry Potter</a></li>
+                <li><a href="#">Animals</a></li>
+              </ul>
+            </nav>
+            
+            <article>
+
+                <div>
+                    <button  class="button buttonA"  id ="button_A" style="color:rgb(238, 229, 235);">A</button>
+                    <button class="button buttonB" id="button_B" style="color:rgb(246, 240, 240);" >B</button>
+                    <button  class="button buttonC"  id ="button_C" style="color:rgb(238, 229, 235);">C</button>
+                    <button class="button buttonD" id="button_D" style="color:rgb(246, 240, 240);" >D</button>
+                </div>
+                <div> 
+                    <button  class="button buttonE"  id ="button_E" style="color:rgb(238, 229, 235);">E</button>
+                    <button class="button buttonF" id="button_F" style="color:rgb(246, 240, 240);" >F</button>
+                    <button  class="button buttonG"  id ="button_G" style="color:rgb(238, 229, 235);">G</button>
+                    <button class="button buttonH" id="button_H" style="color:rgb(246, 240, 240);" >H</button>
+                </div>
+                <div>
+                    <button  class="button buttonI"  id ="button_I" style="color:rgb(238, 229, 235);">I </button>
+                    <button class="button buttonJ" id="button_J" style="color:rgb(246, 240, 240);" >J</button>
+                    <button  class="button buttonK"  id ="button_K" style="color:rgb(238, 229, 235);">K</button>
+                    <button class="button buttonL" id="button_L" style="color:rgb(246, 240, 240);" >L</button>
+                </div>
+                <div>
+                    <button  class="button buttonM"  id ="button_M" style="color:rgb(238, 229, 235);">M</button>
+                    <button class="button buttonN" id="button_N" style="color:rgb(246, 240, 240);" >N</button>
+                    <button  class="button buttonO"  id ="button_O" style="color:rgb(238, 229, 235);">O</button>
+                    <button class="button buttonP" id="button_P" style="color:rgb(246, 240, 240);" >P</button>
+                </div>
+                <div>
+                    <button  class="button buttonQ"  id ="button_Q" style="color:rgb(238, 229, 235);">Q</button>
+                    <button class="button buttonR" id="button_R" style="color:rgb(246, 240, 240);" >R</button>
+                    <button  class="button buttonS"  id ="button_S" style="color:rgb(238, 229, 235);">S</button>
+                    <button class="button buttonT" id="button_T" style="color:rgb(246, 240, 240);" >T</button>
+                </div>
+                <div>
+                    <button  class="button buttonU"  id ="button_U" style="color:rgb(238, 229, 235);">U</button>
+                    <button class="button buttonV" id="button_V" style="color:rgb(246, 240, 240);" >V</button>
+                    <button  class="button buttonW"  id ="button_W" style="color:rgb(238, 229, 235);">W</button>
+                    <button class="button buttonX" id="button_X" style="color:rgb(246, 240, 240);" >X</button>
+                </div>
+                <div>
+                    <button  class="button buttonY"  id ="button_Y" style="color:rgb(238, 229, 235);">Y</button>
+                    <button class="button buttonZ" id="button_Z" style="color:rgb(246, 240, 240);" >Z</button>  
+                </div>    
+        
+             
+            </article>
+          </section>
+       
+
+
+
+
+
     <script>
 
-        
+        /*
 
 // constant : that store word /words ::
 // if words : we need random choice from array:
@@ -84,7 +312,7 @@ console.log("test2222   " + word_array.join(""));
 
 
 
-
+*/
 
 
 
